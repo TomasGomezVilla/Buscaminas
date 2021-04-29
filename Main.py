@@ -3,7 +3,7 @@
 """
 Created on Wed Mar 31 19:59:30 2021
 
-@author: tgome
+@author: tgomez
 """
 
 from Controller import Controller
@@ -12,7 +12,7 @@ from Controller import Controller
 #objetos: min, Clase: Mayúscula
 
 controller = Controller()
-board = controller.initialize()
+
 
 
 

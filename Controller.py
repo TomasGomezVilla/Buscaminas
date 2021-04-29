@@ -13,10 +13,19 @@ from itertools import product #producto cartesiano entre las listas
 class Controller:
     def __init__(self): 
         print("What's created Controller")
-        view = View()
-        model = Model()
+        nrows, ncols, n_mines = self.initialize()
+        self.view = View(nrows, ncols, n_mines)
+        self.model = Model()
+        self.view.display()
 
     def initialize(self):
+        size_x = input("Ingrese la cantidad de filas -->")
+        size_y = input("Ingrese la cantidad de columnas -->")
+        n_mines = input("Ingrese la cantidad de minas -->")
+        return int(size_x), int(size_y), int(n_mines)
+
+
+    def initialize2(self):
         #Pimera parte del código
 
         size_x = input( "Ingrese la cantidad de columnas -->")
