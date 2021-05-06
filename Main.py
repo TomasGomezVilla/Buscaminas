@@ -12,7 +12,3 @@ from Controller import Controller
 #objetos: min, Clase: Mayúscula
 
 controller = Controller()
-
-
-
-

@@ -4,26 +4,22 @@ Created on Wed Apr 14 20:53:25 2021
 
 @author: tgome
 """
-import numpy as np
-from itertools import product
+
 
 class View:
-    def __init__(self, nrows, ncols, n_mines):
+    def __init__(self):
         print("What's created View")
-        self.board = np.zeros([nrows,ncols])
-        self.initialize (self.board, n_mines)
 
-    def initialize(self, board, n_mines):
+    def display(self,board):
         nrows,ncols = board.shape
-        pos= np.arange (nrows*ncols) #lista de # del 0 hasta (no inclusivo) el valor que se le ingresa
-        selected_pos = np.random.choice(pos, n_mines, replace=False)
-        I= (selected_pos/ncols).astype(int)
-        J= selected_pos-I*ncols
-        for i,j in zip(I,J): board[i,j]=1
-        return board
+        print (end="  ")
+        
+        for j in range(ncols):
+            print(j, end=" ")
+        print()
 
-    def display(self):
-      print(self.board)
-
-
-
+        for i in range(nrows):
+            print(i, end=" ")
+            for j in range (ncols):
+                print("x ",end="")
+            print()  #tiene por defecto el valor \n, que le da Enter
