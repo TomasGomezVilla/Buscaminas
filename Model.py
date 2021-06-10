@@ -22,6 +22,13 @@ class Model:
         for i,j in zip(I,J): board[i,j]=1
         return board
 
+    def check (self, row, col):
+        if self.board[row,col] == 1:
+            return True
+        else:
+            return False
+    ##manejo de errores: expepciones -
+
     def initialize2(self):
         #Pimera parte del código
 

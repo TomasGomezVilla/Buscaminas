@@ -14,17 +14,34 @@ class Controller:
         print("What's created Controller")
         nrows, ncols, n_mines = self.initialize()
         self.model = Model(nrows, ncols, n_mines)
-        self.view = View()
-        self.view.display(self.model.board)
+        self.view = View(nrows, ncols)
+
 
     def initialize(self):
-        #size_x = input("Ingrese la cantidad de filas -->")
-        #size_y = input("Ingrese la cantidad de columnas -->")
-        #n_mines = input("Ingrese la cantidad de minas -->")
-        #return int(size_x), int(size_y), int(n_mines)
-        return 4,4,5
+        size_x = input("Ingrese la cantidad de filas --> ")
+        size_y = input("Ingrese la cantidad de columnas --> ")
+        n_mines = input("Ingrese la cantidad de minas --> ")
+        return int(size_x), int(size_y), int(n_mines)
+        #return 4,4,5
+
+    def display(self):
+        self.view.display()
+
 
     def play(self):
         pos = input("> ")
         row,col = pos.split()
-        return int(row), int(col)
+
+        row = int (row)
+        col = int (col)
+        explosion=self.model.check(row, col)
+        if explosion:
+            self.view.update_position (row, col, val=2)
+            return self.exit()
+        else:
+            self.view.update_position (row, col, val=1)
+            return True
+
+    def exit(self):
+        print("Game Over")
+        return False

@@ -12,3 +12,10 @@ from Controller import Controller
 #objetos: min, Clase: Mayúscula
 
 controller = Controller()
+controller.display()
+keep_playing = True
+
+while keep_playing:
+    keep_playing = controller.play()
+    controller.display()   
+
